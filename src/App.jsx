@@ -1,7 +1,14 @@
+import './App.css';
+import FoodDeliveryForm from './components/FoodDeliveryForm';
+
 function App() {
   return (
     <>
-      <h2>Food delivery App</h2>
+      <div className="container">
+        <div className="mx-5">
+          <FoodDeliveryForm />
+        </div>
+      </div>
     </>
   );
 }
