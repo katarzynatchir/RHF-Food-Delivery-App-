@@ -4,6 +4,7 @@ import TextField from './TextField';
 import CheckoutForm from './CheckoutForm';
 import DeliveryAddressForm from './DeliveryAddressForm';
 import FoodDeliveryMaster from './FoodDeliveryMaster';
+import FoodItems from './FoodItems';
 
 const FoodDeliveryForm = () => {
   const methods = useForm({
@@ -15,6 +16,7 @@ const FoodDeliveryForm = () => {
       email: '',
       paymentMethod: '',
       deliveryIn: '',
+      foodItems: [{ name: '', quantity: 0 }],
       address: {
         streetAddress: '',
         landmark: '',
@@ -24,11 +26,7 @@ const FoodDeliveryForm = () => {
     },
   });
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = methods;
+  const { handleSubmit } = methods;
 
   const onSubmit = data => console.log('data', data);
   const onError = errors => console.log('validation errors', errors);
@@ -38,7 +36,7 @@ const FoodDeliveryForm = () => {
       <div>list of order food items</div>
       <FormProvider {...methods}>
         <FoodDeliveryMaster />
-        <div>list of order food items</div>
+        <FoodItems />
         <CheckoutForm />
         <DeliveryAddressForm />
       </FormProvider>
